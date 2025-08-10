@@ -17,7 +17,7 @@ const About = () => {
           </h1>
           {/* Name */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Kaif Khan
+            Mahek Khan
           </h2>
           {/* Skills heading with typing effect */}
           <div className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 leading-tight flex flex-wrap justify-center md:justify-start items-center text-center md:text-left">
