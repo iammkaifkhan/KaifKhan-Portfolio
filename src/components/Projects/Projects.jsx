@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "../../constants";
 
 const Projects = () => {
@@ -11,6 +11,19 @@ const Projects = () => {
   const handleCloseModal = () => {
     setSelectedProject(null);
   };
+
+    // 🔹 Close modal on Esc key press
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    // cleanup on unmount
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   return (
     <section
@@ -28,7 +41,7 @@ const Projects = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-1">
         {projects.map((project) => (
           <div
             key={project.id}
